@@ -1,30 +1,29 @@
 # Kali Linux Lab
+Automated Kali Linux VM built with Vagrant and VMware Workstation Pro.
+The environment comes pre-configured with pentest tools and basic hardening.
 
-Automatiserad Kali Linux VM byggd med Vagrant och VMware Workstation Pro.
-Miljön är förkonfigurerad med pentestverktyg och grundläggande härdning.
+## Includes
 
-## Innehåller
-
-**Pentestverktyg**
-- Kali Linux rolling release med standardverktyg (nmap, metasploit, burpsuite m.fl.)
-- gobuster, ffuf — webbfuzzing och katalogbrute-force
-- crackmapexec, impacket — Active Directory och Windows-testning
+**Pentest Tools**
+- Kali Linux rolling release with default tools (nmap, metasploit, burpsuite etc.)
+- gobuster, ffuf — web fuzzing and directory brute-force
+- crackmapexec, impacket — Active Directory and Windows testing
 - evil-winrm — Windows remote management
-- amass, subfinder — subdomänsökning och rekognosering
-- seclists — ordlistor för brute-force och fuzzing
+- amass, subfinder — subdomain enumeration and reconnaissance
+- seclists — wordlists for brute-force and fuzzing
 
-**Härdning**
-- UFW brandvägg — blockerar all inkommande trafik
-- Fail2ban — skydd mot brute-force
-- Auditd — systemloggning
-- SSH-härdning — root-login blockerat, max 3 inloggningsförsök
-- Onödiga tjänster inaktiverade (bluetooth, cups, avahi)
+**Hardening**
+- UFW firewall — blocks all incoming traffic
+- Fail2ban — brute-force protection
+- Auditd — system logging
+- SSH hardening — root login disabled, max 3 login attempts
+- Unnecessary services disabled (bluetooth, cups, avahi)
 
-**Övrigt**
-- OpenVPN — stöd för TryHackMe och HackTheBox
-- VMware Guest Additions — klipp-och-klistra, skärmupplösning
+**Other**
+- OpenVPN — support for TryHackMe and HackTheBox
+- VMware Guest Additions — clipboard sharing, screen resolution
 
-## Krav
+## Requirements
 
 - [Vagrant](https://www.vagrantup.com/)
 - [VMware Workstation Pro](https://www.vmware.com/products/workstation-pro.html)
@@ -32,44 +31,43 @@ Miljön är förkonfigurerad med pentestverktyg och grundläggande härdning.
 
 ## Installation
 
-### 1. Installera Vagrant VMware plugin
+### 1. Install Vagrant VMware plugin
 ```bash
 vagrant plugin install vagrant-vmware-desktop
 ```
 
-### 2. Klona repot
+### 2. Clone the repository
 ```bash
-git clone https://github.com/Sav1cc/kali.git
-cd kali
+git clone https://github.com/Sav1cc/Kali-lab.git
+cd Kali-lab
 ```
 
-### 3. Starta VM:en
+### 3. Start the VM
 ```bash
 vagrant up
 ```
-Första uppstarten tar 5-10 minuter beroende på internetanslutning.
+First boot takes 10-20 minutes depending on your internet connection.
 
-### 4. Efter uppstart
-Logga in via VMware GUI med:
-- Användare: `vagrant`
-- Lösenord: `vagrant`
+### 4. After startup
+Log in via VMware GUI with:
+- Username: `kali`
+- Password: `kali`
 
-Byt lösenord direkt:
+Change passwords immediately:
 ```bash
 passwd kali
+passwd root
 ```
 
-## Kommandon
-
+## Commands
 ```bash
-vagrant up        # Starta VM:en
-vagrant halt      # Stäng av VM:en
-vagrant suspend   # Pausa VM:en
-vagrant destroy   # Radera VM:en helt
-vagrant provision # Kör om provisioneringen
+vagrant up        # Start the VM
+vagrant halt      # Shut down the VM
+vagrant suspend   # Suspend the VM
+vagrant destroy   # Delete the VM completely
+vagrant provision # Re-run provisioning
 ```
 
-## Säkerhet
-
-Denna VM är avsedd för laglig pentesting i kontrollerade miljöer såsom TryHackMe och HackTheBox.
-Använd aldrig dessa verktyg mot system du inte har tillstånd att testa.
+## Disclaimer
+This VM is intended for legal pentesting in controlled environments such as TryHackMe and HackTheBox.
+Never use these tools against systems you do not have explicit permission to test.
