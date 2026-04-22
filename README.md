@@ -50,13 +50,12 @@ First boot takes 10-20 minutes depending on your internet connection.
 
 ### 4. After startup
 Log in via VMware GUI with:
-- Username: `kali`
-- Password: `kali`
+- Username: `vagrant`
+- Password: `vagrant`
 
 Change passwords immediately:
 ```bash
-passwd kali
-passwd root
+passwd vagrant
 ```
 
 ## Commands
